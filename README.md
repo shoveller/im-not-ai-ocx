@@ -90,4 +90,11 @@ BASE_URL=http://127.0.0.1:8787 corepack pnpm smoke:contract
 corepack pnpm run deploy
 ```
 
-Cloudflare 인증/권한이 설정되어 있어야 합니다.
+Cloudflare 인증/권한이 설정되어 있어야 합니다. `wrangler.jsonc`에는 공개 repo에 고정 account id를 두지 않습니다. 로컬에서는 `.env.example`을 복사해 `.env`를 만들고 `CLOUDFLARE_ACCOUNT_ID`를 설정하세요.
+
+```sh
+cp .env.example .env
+# .env에서 CLOUDFLARE_ACCOUNT_ID 값을 채움
+wrangler login # 또는 .env의 CLOUDFLARE_API_TOKEN 사용
+corepack pnpm run deploy
+```
