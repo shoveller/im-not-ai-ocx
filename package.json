@@ -5,7 +5,7 @@
     "dev": "vite",
     "build": "$npm_execpath run validate:registry && vite build",
     "preview": "$npm_execpath run build && vite preview",
-    "deploy": "if [ -z \"$CLOUDFLARE_API_TOKEN\" ]; then CLOUDFLARE_API_TOKEN=\"$(pass cf/token 2>/dev/null | tr -d '\\r\\n')\"; fi; if [ -z \"$CLOUDFLARE_API_TOKEN\" ]; then echo '[deploy] CLOUDFLARE_API_TOKEN is empty (env or pass cf/token)'; exit 1; fi; export CLOUDFLARE_API_TOKEN; $npm_execpath run build && wrangler deploy --config dist/ocx/wrangler.json",
+    "deploy": "if [ -z \"$CLOUDFLARE_API_TOKEN\" ] && command -v pass >/dev/null 2>&1; then CLOUDFLARE_API_TOKEN=\"$(pass cf/token 2>/dev/null | tr -d '\\r\\n')\"; fi; if [ -z \"$CLOUDFLARE_API_TOKEN\" ]; then echo '[deploy] CLOUDFLARE_API_TOKEN is empty (env or pass cf/token)'; exit 1; fi; export CLOUDFLARE_API_TOKEN; $npm_execpath run build && wrangler deploy --config dist/im_not_ai_ocx/wrangler.json",
     "cf-typegen": "wrangler types --env-interface CloudflareBindings",
     "typecheck": "$npm_execpath run cf-typegen && tsc",
     "eslint": "eslint --fix --ignore-pattern .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
