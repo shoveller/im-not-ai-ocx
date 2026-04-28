@@ -2,11 +2,18 @@
 
 Hono + Cloudflare Workers(+Vite) 기반의 **im-not-ai 전용 OCX registry** 입니다.
 
-이 registry는 `epoko77-ai/im-not-ai`를 OpenCode/OCX profile로 패키징합니다.
+이 registry는 원 프로젝트 [`epoko77-ai/im-not-ai`](https://github.com/epoko77-ai/im-not-ai)의 아이디어와 프롬프트/레퍼런스 자산을 존중하며, 이를 OpenCode/OCX profile 형태로 패키징한 비공식 포트입니다. 원 프로젝트의 설계와 축적된 한국어 AI 티 제거 노하우가 이 profile의 기반입니다.
 
 - Original project: <https://github.com/epoko77-ai/im-not-ai>
+- Original author/maintainer: [@epoko77-ai](https://github.com/epoko77-ai)
 - Original license: MIT License, Copyright (c) 2026 epoko77-ai
 - Registry repo: <https://github.com/shoveller/im-not-ai-ocx>
+
+## Attribution
+
+`im-not-ai-ocx`는 `epoko77-ai/im-not-ai`를 대체하거나 소유권을 주장하는 프로젝트가 아닙니다. 이 저장소의 목적은 원 저작자가 만든 `im-not-ai` 작업물을 OpenCode/OCX 사용자가 설치하기 쉽게 재패키징하는 것입니다.
+
+원 저작자의 이름, 라이선스, 출처를 보존하며, upstream의 변경과 기여 내역을 존중합니다. 기능·문서·레퍼런스의 핵심 출처는 원 프로젝트에 있으며, 이 포트에서 발생한 변경은 OpenCode/OCX 배포 형식에 맞추기 위한 어댑터 성격의 수정입니다.
 
 ## 주요 엔드포인트
 
