@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.base.json",
+  "include": ["src/**/*", "workers/**/*", "worker-configuration.d.ts"],
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.cache/tsc/tsconfig.cloudflare.tsbuildinfo",
+    "composite": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "types": ["vite/client", "node", "vitest/globals"],
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "jsxImportSource": "hono/jsx",
+    "esModuleInterop": true,
+    "resolveJsonModule": true
+  }
+}

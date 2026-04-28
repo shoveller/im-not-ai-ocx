@@ -1,0 +1,36 @@
+{
+  "$schema": "https://ocx.kdco.dev/schemas/v2/registry.json",
+  "name": "im-not-ai OCX Registry",
+  "version": "0.1.0",
+  "author": "서재원",
+  "components": [
+    {
+      "name": "im-not-ai",
+      "type": "profile",
+      "description": "OpenCode profile port of im-not-ai Korean AI-style humanizer",
+      "files": [
+        "AGENTS.md",
+        "CONTRIBUTORS.md",
+        "LICENSE",
+        "README.md",
+        "agents/ai-tell-detector.md",
+        "agents/content-fidelity-auditor.md",
+        "agents/humanize-monolith.md",
+        "agents/humanize-orchestrator.md",
+        "agents/humanize-web-architect.md",
+        "agents/korean-ai-tell-taxonomist.md",
+        "agents/korean-style-rewriter.md",
+        "agents/naturalness-reviewer.md",
+        "commands/humanize-redo.md",
+        "commands/humanize.md",
+        "ocx.jsonc",
+        "opencode.jsonc",
+        "skills/humanize-korean/SKILL.md",
+        "skills/humanize-korean/references/ai-tell-taxonomy.md",
+        "skills/humanize-korean/references/quick-rules.md",
+        "skills/humanize-korean/references/rewriting-playbook.md",
+        "skills/humanize-korean/references/web-service-spec.md"
+      ]
+    }
+  ]
+}

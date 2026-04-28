@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "account_id": "05d28f4d9bcd9c4b42a42c06420cb464",
+  "name": "im-not-ai-ocx",
+  "compatibility_date": "2026-04-18",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "main": "./src/index.tsx",
+  "routes": [
+    {
+      "pattern": "im-not-ai-ocx.illuwa.click",
+      "custom_domain": true
+    }
+  ]
+}

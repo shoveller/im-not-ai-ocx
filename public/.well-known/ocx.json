@@ -1,0 +1,5 @@
+{
+  "name": "im-not-ai-ocx",
+  "index": "/index.json",
+  "components": "/components/{name}.json"
+}

@@ -1,0 +1,48 @@
+{
+  "name": "im-not-ai-ocx",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "$npm_execpath run validate:registry && vite build",
+    "preview": "$npm_execpath run build && vite preview",
+    "deploy": "if [ -z \"$CLOUDFLARE_API_TOKEN\" ]; then CLOUDFLARE_API_TOKEN=\"$(pass cf/token 2>/dev/null | tr -d '\\r\\n')\"; fi; if [ -z \"$CLOUDFLARE_API_TOKEN\" ]; then echo '[deploy] CLOUDFLARE_API_TOKEN is empty (env or pass cf/token)'; exit 1; fi; export CLOUDFLARE_API_TOKEN; $npm_execpath run build && wrangler deploy --config dist/ocx/wrangler.json",
+    "cf-typegen": "wrangler types --env-interface CloudflareBindings",
+    "typecheck": "$npm_execpath run cf-typegen && tsc",
+    "eslint": "eslint --fix --ignore-pattern .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
+    "prettier": "prettier --write \"**/*.{ts,tsx,cjs,mjs,json,html,css,js,jsx}\" --cache",
+    "format": "run-s typecheck prettier eslint",
+    "validate:registry": "node scripts/validate-registry-json.mjs",
+    "smoke:local": "bash scripts/smoke-local.sh",
+    "smoke:contract": "node scripts/smoke-contract.mjs",
+    "test": "$npm_execpath run validate:registry && vitest run --config vitest.config.ts",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "hono": "^4.12.14"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.2.3",
+    "@eslint/js": "^10.0.1",
+    "@trivago/prettier-plugin-sort-imports": "^6.0.2",
+    "@types/node": "^25.6.0",
+    "eslint": "^10.2.1",
+    "eslint-plugin-functional": "^9.0.4",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-unused-imports": "^4.4.1",
+    "globals": "^17.5.0",
+    "husky": "^9.1.7",
+    "npm-run-all2": "^8.0.4",
+    "prettier": "^3.8.3",
+    "prettier-plugin-classnames": "^0.10.1",
+    "prettier-plugin-css-order": "^2.2.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.58.2",
+    "vite": "^6.3.5",
+    "vite-ssr-components": "^0.5.2",
+    "vite-tsconfig-paths": "^6.1.1",
+    "vitest": "^4.1.4",
+    "wrangler": "^4.17.0",
+    "zod": "^4.3.6"
+  },
+  "packageManager": "pnpm@10.28.2+sha512.41872f037ad22f7348e3b1debbaf7e867cfd448f2726d9cf74c08f19507c31d2c8e7a11525b983febc2df640b5438dee6023ebb1f84ed43cc2d654d2bc326264"
+}

@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.paths.json",
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "incremental": true,
+    "tsBuildInfoFile": "./node_modules/.cache/tsc/tsbuildinfo",
+    "noEmit": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true,
+    "erasableSyntaxOnly": true
+  }
+}

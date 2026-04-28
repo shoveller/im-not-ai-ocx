@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "name": "im-not-ai",
+  "componentType": "profile",
+  "description": "OpenCode profile port of im-not-ai Korean AI-style humanizer"
+}
