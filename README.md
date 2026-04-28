@@ -23,7 +23,7 @@ Hono + Cloudflare Workers(+Vite) 기반의 **im-not-ai 전용 OCX registry** 입
 ## OCX bootstrap 예시
 
 ```sh
-ocx profile add im-not-ai --source im-not-ai/im-not-ai --from https://im-not-ai-ocx.illuwa.click --global
+ocx profile add im-not-ai --source im-not-ai-ocx/im-not-ai --from https://im-not-ai-ocx.illuwa.click --global
 ```
 
 ## OCX 사용법

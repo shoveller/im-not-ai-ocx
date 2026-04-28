@@ -87,6 +87,23 @@ describe('ocx registry endpoints', () => {
     expect(indexBody.components[0]?.files).not.toContain('manifest.json')
   })
 
+  it('shows im-not-ai-ocx namespace in install examples', async () => {
+    const response = await app.request('http://localhost/help')
+
+    expect(response.status).toBe(200)
+
+    const body = (await response.json()) as {
+      components: Array<{ installCommand: string; quickStart: string }>
+    }
+    const component = body.components[0]
+
+    expect(component?.installCommand).toContain('--name im-not-ai-ocx')
+    expect(component?.installCommand).toContain(
+      '--source im-not-ai-ocx/im-not-ai'
+    )
+    expect(component?.quickStart).toContain('--source im-not-ai-ocx/im-not-ai')
+  })
+
   it('returns packument from /components/:name.json', async () => {
     const indexBody = readIndex()
     const indexComponent = indexBody.components[0]

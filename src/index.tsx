@@ -39,9 +39,9 @@ app.get('/help', (c) => {
         description:
           'OpenCode profile port of im-not-ai Korean AI-style humanizer',
         installCommand:
-          'ocx registry add https://im-not-ai-ocx.illuwa.click --name im-not-ai --global && ocx profile add im-not-ai --source im-not-ai/im-not-ai --global',
+          'ocx registry add https://im-not-ai-ocx.illuwa.click --name im-not-ai-ocx --global && ocx profile add im-not-ai --source im-not-ai-ocx/im-not-ai --global',
         quickStart:
-          'ocx profile add im-not-ai --source im-not-ai/im-not-ai --from https://im-not-ai-ocx.illuwa.click --global'
+          'ocx profile add im-not-ai --source im-not-ai-ocx/im-not-ai --from https://im-not-ai-ocx.illuwa.click --global'
       }
     ],
     links: {
