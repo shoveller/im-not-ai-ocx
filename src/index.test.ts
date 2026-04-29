@@ -51,6 +51,10 @@ describe('ocx registry endpoints', () => {
 
     expect(body).toContain('im-not-ai-ocx')
     expect(body).toContain('epoko77-ai/im-not-ai')
+    expect(body).toContain(
+      'https://raw.githubusercontent.com/epoko77-ai/im-not-ai/main/assets/social-preview.png'
+    )
+    expect(body).toContain('alt="im-not-ai 원본 social preview 이미지"')
     expect(body).toContain('OpenCode')
     expect(body).toContain('OCX')
     expect(body).toContain('WSL2')
@@ -114,6 +118,8 @@ describe('ocx registry endpoints', () => {
     expect(css).toContain('@media (max-width: 480px)')
     expect(css).toContain('max-width: 100%')
     expect(css).toContain('white-space: pre-wrap')
+    expect(css).toContain('.hero-preview')
+    expect(css).toContain('aspect-ratio: 1200 / 630')
   })
 
   it('keeps discovery document as static public file', () => {
