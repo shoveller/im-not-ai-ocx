@@ -66,6 +66,33 @@ describe('ocx registry endpoints', () => {
     expect(body).toContain('AI 티')
   })
 
+  it('renders mobile and Open Graph metadata', async () => {
+    const response = await app.request('http://localhost/')
+
+    expect(response.status).toBe(200)
+
+    const body = await response.text()
+
+    expect(body).toContain(
+      '<meta name="viewport" content="width=device-width, initial-scale=1"'
+    )
+    expect(body).toContain('<meta property="og:title" content="im-not-ai-ocx"')
+    expect(body).toContain('property="og:description"')
+    expect(body).toContain('property="og:url"')
+    expect(body).toContain('name="twitter:card" content="summary"')
+  })
+
+  it('keeps narrow screens readable without horizontal page overflow', () => {
+    const projectRoot = join(import.meta.dirname, '..')
+    const css = readFileSync(join(projectRoot, 'src/style.css'), 'utf8')
+
+    expect(css).toContain('box-sizing: border-box')
+    expect(css).toContain('overflow-wrap: anywhere')
+    expect(css).toContain('@media (max-width: 480px)')
+    expect(css).toContain('max-width: 100%')
+    expect(css).toContain('white-space: pre-wrap')
+  })
+
   it('keeps discovery document as static public file', () => {
     const projectRoot = join(import.meta.dirname, '..')
     const discovery = JSON.parse(
