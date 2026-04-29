@@ -1,5 +1,6 @@
 import { AttributionSection } from './AttributionSection'
 import { CapabilitiesSection } from './CapabilitiesSection'
+import { CommandUsageSection } from './CommandUsageSection'
 import { DefinitionSection } from './DefinitionSection'
 import { FooterSection } from './FooterSection'
 import { HeroSection } from './HeroSection'
@@ -13,6 +14,7 @@ export const About = () => {
       <DefinitionSection />
       <CapabilitiesSection />
       <InstallSection />
+      <CommandUsageSection />
       <AttributionSection />
       <QuickLinksSection />
       <FooterSection />

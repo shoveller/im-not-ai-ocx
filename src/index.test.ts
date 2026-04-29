@@ -58,6 +58,11 @@ describe('ocx registry endpoints', () => {
     expect(body).toContain('npm i -g opencode-ai')
     expect(body).toContain('ocx profile add im-not-ai')
     expect(body).toContain('--source im-not-ai-ocx/im-not-ai')
+    expect(body).toContain('커맨드 사용법')
+    expect(body).toContain('/humanize')
+    expect(body).toContain('/humanize-redo')
+    expect(body).toContain('장르: 칼럼')
+    expect(body).toContain('--strict')
     expect(body).toContain(
       '윤문이란, 의미는 그대로 두고 문체를 다듬는 일을 말합니다'
     )
