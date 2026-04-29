@@ -62,6 +62,15 @@ describe('ocx registry endpoints', () => {
     expect(body).toContain('npm i -g opencode-ai')
     expect(body).toContain('ocx profile add im-not-ai')
     expect(body).toContain('--source im-not-ai-ocx/im-not-ai')
+    expect(body).toContain('LLM용 설치 지침 복사')
+    expect(body).toContain('data-copy-target="llm-install-markdown"')
+    expect(body).toContain('id="llm-install-markdown"')
+    expect(body).toContain('당신은 OpenCode/OCX 설치를 도와주는 LLM입니다')
+    expect(body).toContain(
+      '설치가 끝나면 `ocx opencode -p im-not-ai`로 실행을 확인하세요'
+    )
+    expect(body).toContain('navigator.clipboard.writeText')
+    expect(body).toContain('복사 완료')
     expect(body).toContain('커맨드 사용법')
     expect(body).toContain('/humanize 커맨드로 문장을 다듬습니다.')
     expect(body).not.toContain(

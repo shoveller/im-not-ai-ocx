@@ -153,6 +153,52 @@ a {
   color: #bbf7d0;
 }
 
+.llm-install-copy {
+  align-items: center;
+  background: #ecfdf5;
+  border: 1px solid #86efac;
+  border-radius: 20px;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  margin-top: 18px;
+  padding: 18px;
+}
+
+.llm-install-copy h3 {
+  color: #065f46;
+  margin: 0 0 6px;
+}
+
+.llm-install-copy p {
+  margin: 0;
+}
+
+.copy-markdown-button {
+  background: #047857;
+  border: 0;
+  border-radius: 999px;
+  color: #ecfdf5;
+  cursor: pointer;
+  flex: 0 0 auto;
+  font: inherit;
+  font-weight: 800;
+  padding: 12px 18px;
+}
+
+.copy-markdown-button:hover {
+  background: #065f46;
+}
+
+.sr-only {
+  height: 1px;
+  left: -10000px;
+  overflow: hidden;
+  position: absolute;
+  top: auto;
+  width: 1px;
+}
+
 pre {
   background: #022c22;
   border-radius: 18px;
@@ -252,6 +298,15 @@ code {
   .install-card {
     border-radius: 16px;
     padding: 16px;
+  }
+
+  .llm-install-copy {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .copy-markdown-button {
+    width: 100%;
   }
 
   pre {
