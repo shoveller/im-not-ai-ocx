@@ -1,4 +1,5 @@
 import { Hono } from 'hono'
+import { About } from './About'
 import {
   getComponentFile,
   getPackument,
@@ -11,12 +12,7 @@ const app = new Hono()
 app.use(renderer)
 
 app.get('/', (c) => {
-  return c.render(
-    <main>
-      <h1>healthcheck</h1>
-      <p>ok</p>
-    </main>
-  )
+  return c.render(<About />)
 })
 
 app.get('/help', (c) => {
@@ -25,7 +21,7 @@ app.get('/help', (c) => {
     version: '0.1.0',
     description: 'OCX registry for the im-not-ai OpenCode profile',
     endpoints: {
-      'GET /': 'Health check',
+      'GET /': 'Project introduction and install guide',
       'GET /.well-known/ocx.json': 'Registry discovery',
       'GET /index.json': 'Registry manifest with component list',
       'GET /components/{name}.json': 'Component packument (npm-style)',

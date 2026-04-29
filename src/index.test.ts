@@ -41,7 +41,7 @@ const readIndex = (): RegistryIndex => {
 }
 
 describe('ocx registry endpoints', () => {
-  it('renders healthcheck page from /', async () => {
+  it('renders project introduction and install guide from /', async () => {
     const response = await app.request('http://localhost/')
 
     expect(response.status).toBe(200)
@@ -49,8 +49,15 @@ describe('ocx registry endpoints', () => {
 
     const body = await response.text()
 
-    expect(body).toContain('healthcheck')
-    expect(body).toContain('ok')
+    expect(body).toContain('im-not-ai-ocx')
+    expect(body).toContain('epoko77-ai/im-not-ai')
+    expect(body).toContain('OpenCode')
+    expect(body).toContain('OCX')
+    expect(body).toContain('WSL2')
+    expect(body).toContain('macOS')
+    expect(body).toContain('npm i -g opencode-ai')
+    expect(body).toContain('ocx profile add im-not-ai')
+    expect(body).toContain('--source im-not-ai-ocx/im-not-ai')
   })
 
   it('keeps discovery document as static public file', () => {
