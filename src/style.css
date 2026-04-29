@@ -71,6 +71,29 @@ a {
   margin: 0;
 }
 
+.capability-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-top: 24px;
+}
+
+.capability-card {
+  background: #f7fee7;
+  border: 1px solid #a7f3d0;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.capability-card h3 {
+  color: #065f46;
+  margin: 0 0 8px;
+}
+
+.capability-card p {
+  margin: 0;
+}
+
 .install-card {
   background: #052e2b;
   border-radius: 22px;
