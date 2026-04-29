@@ -1,7 +1,4 @@
 const links = [
-  ['Help JSON', '/help'],
-  ['Registry manifest', '/index.json'],
-  ['im-not-ai packument', '/components/im-not-ai.json'],
   ['Original project', 'https://github.com/epoko77-ai/im-not-ai'],
   ['Registry repo', 'https://github.com/shoveller/im-not-ai-ocx']
 ]

@@ -71,6 +71,11 @@ describe('ocx registry endpoints', () => {
     expect(body).toContain('AI 티')
     expect(body).toContain('서재원 : cinos@illuwa.click')
     expect(body).toContain('class="site-footer"')
+    expect(body).toContain('Original project')
+    expect(body).toContain('Registry repo')
+    expect(body).not.toContain('Help JSON')
+    expect(body).not.toContain('Registry manifest')
+    expect(body).not.toContain('im-not-ai packument')
   })
 
   it('renders mobile and Open Graph metadata', async () => {
