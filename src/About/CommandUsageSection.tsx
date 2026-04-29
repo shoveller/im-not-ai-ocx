@@ -13,10 +13,7 @@ export const CommandUsageSection = () => {
         <p class="eyebrow">Commands</p>
         <h2>커맨드 사용법</h2>
       </div>
-      <p>
-        OpenCode 안에서 설치한 profile을 연 뒤 /humanize로 초벌 윤문을 시작하고,
-        /humanize-redo로 최근 결과를 다시 다듬습니다.
-      </p>
+      <p>/humanize 커맨드로 문장을 다듬습니다.</p>
       <pre class="command-examples">
         <code>{commands.join('\n')}</code>
       </pre>

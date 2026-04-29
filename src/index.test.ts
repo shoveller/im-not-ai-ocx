@@ -59,6 +59,11 @@ describe('ocx registry endpoints', () => {
     expect(body).toContain('ocx profile add im-not-ai')
     expect(body).toContain('--source im-not-ai-ocx/im-not-ai')
     expect(body).toContain('커맨드 사용법')
+    expect(body).toContain('/humanize 커맨드로 문장을 다듬습니다.')
+    expect(body).not.toContain(
+      'OpenCode 안에서 설치한 profile을 연 뒤 /humanize로 초벌 윤문을 시작하고'
+    )
+    expect(body).not.toContain('/humanize-redo로 최근 결과를 다시 다듬습니다.')
     expect(body).toContain('/humanize')
     expect(body).toContain('/humanize-redo')
     expect(body).toContain('장르: 칼럼')
