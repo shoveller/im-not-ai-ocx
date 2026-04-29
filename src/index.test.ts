@@ -69,6 +69,8 @@ describe('ocx registry endpoints', () => {
     expect(body).toContain('OpenCode의 현재 모델')
     expect(body).toContain('번역투')
     expect(body).toContain('AI 티')
+    expect(body).toContain('서재원 : cinos@illuwa.click')
+    expect(body).toContain('class="site-footer"')
   })
 
   it('renders mobile and Open Graph metadata', async () => {
