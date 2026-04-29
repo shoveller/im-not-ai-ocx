@@ -3,7 +3,7 @@ export const DefinitionSection = () => {
     <section class="about-section">
       <div class="section-heading">
         <p class="eyebrow">What is polishing?</p>
-        <h2>윤문이란 의미는 그대로 두고 문체를 다듬는 일입니다</h2>
+        <h2>윤문이란, 의미는 그대로 두고 문체를 다듬는 일을 말합니다</h2>
       </div>
       <p>
         윤문은 글을 새로 쓰는 것이 아니라 사실, 주장, 수치, 고유명사, 직접

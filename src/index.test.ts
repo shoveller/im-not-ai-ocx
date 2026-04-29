@@ -58,7 +58,12 @@ describe('ocx registry endpoints', () => {
     expect(body).toContain('npm i -g opencode-ai')
     expect(body).toContain('ocx profile add im-not-ai')
     expect(body).toContain('--source im-not-ai-ocx/im-not-ai')
-    expect(body).toContain('윤문이란')
+    expect(body).toContain(
+      '윤문이란, 의미는 그대로 두고 문체를 다듬는 일을 말합니다'
+    )
+    expect(body).not.toContain(
+      '윤문이란 의미는 그대로 두고 문체를 다듬는 일입니다'
+    )
     expect(body).toContain('의미는 그대로')
     expect(body).toContain('저렴한 모델')
     expect(body).toContain('OpenCode의 현재 모델')
