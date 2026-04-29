@@ -63,7 +63,8 @@ describe('ocx registry endpoints', () => {
     expect(body).toContain('/humanize-redo')
     expect(body).toContain('장르: 칼럼')
     expect(body).toContain('--strict')
-    expect(body).toContain(
+    expect(body).toContain('윤문이란?')
+    expect(body).not.toContain(
       '윤문이란, 의미는 그대로 두고 문체를 다듬는 일을 말합니다'
     )
     expect(body).not.toContain(
