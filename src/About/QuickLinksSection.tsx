@@ -1,6 +1,8 @@
 const links = [
   ['Original project', 'https://github.com/epoko77-ai/im-not-ai'],
-  ['Registry repo', 'https://github.com/shoveller/im-not-ai-ocx']
+  ['Registry repo', 'https://github.com/shoveller/im-not-ai-ocx'],
+  ['llms.txt', '/llms.txt'],
+  ['llms-full.txt', '/llms-full.txt']
 ]
 
 export const QuickLinksSection = () => {

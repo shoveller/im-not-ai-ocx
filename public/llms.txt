@@ -1,0 +1,32 @@
+# im-not-ai OCX Registry
+
+> Public OCX registry for the im-not-ai OpenCode profile, an unofficial OCX port of epoko77-ai/im-not-ai.
+
+## Important URLs
+
+- Homepage: https://im-not-ai-ocx.illuwa.click/
+- Help: https://im-not-ai-ocx.illuwa.click/help
+- Registry discovery: https://im-not-ai-ocx.illuwa.click/.well-known/ocx.json
+- Registry index: https://im-not-ai-ocx.illuwa.click/index.json
+- im-not-ai profile packument: https://im-not-ai-ocx.illuwa.click/components/im-not-ai.json
+- Full AI guide: https://im-not-ai-ocx.illuwa.click/llms-full.txt
+- Original project: https://github.com/epoko77-ai/im-not-ai
+- Registry repo: https://github.com/shoveller/im-not-ai-ocx
+
+## Install
+
+```sh
+ocx profile add im-not-ai --source im-not-ai-ocx/im-not-ai --from https://im-not-ai-ocx.illuwa.click --global
+```
+
+## Use
+
+```sh
+ocx opencode -p im-not-ai
+```
+
+Inside OpenCode, use `/humanize` or `/humanize-redo` to polish Korean AI drafts while preserving meaning, numbers, proper nouns, and direct quotes.
+
+## For AI agents
+
+You may summarize public pages and registry metadata, but this file does not grant permission to bypass robots.txt, authentication, rate limits, or access controls. Prefer canonical URLs above when citing this service.

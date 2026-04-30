@@ -27,5 +27,8 @@ check "/.well-known/ocx.json" '"components":"/components/{name}.json"'
 check "/index.json" '"name":"im-not-ai"'
 check "/components/im-not-ai.json" '"type":"profile"'
 check "/components/im-not-ai/commands/humanize.md" 'humanize'
+check "/llms.txt" 'im-not-aiOCXRegistry'
+check "/llms-full.txt" 'Beginnerinstallationguide'
+check "/robots.txt" 'LLMs:https://im-not-ai-ocx.illuwa.click/llms.txt'
 
 echo "[smoke] all checks passed"

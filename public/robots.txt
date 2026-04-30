@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# AI/LLM discovery documents
+# These are advisory links, not a robots.txt standard directive.
+LLMs: https://im-not-ai-ocx.illuwa.click/llms.txt
+LLMs-Full: https://im-not-ai-ocx.illuwa.click/llms-full.txt
+
+# Canonical registry documents
+Sitemap: https://im-not-ai-ocx.illuwa.click/index.json

@@ -1,0 +1,97 @@
+# im-not-ai OCX Registry — Full AI Reference
+
+## What this site is
+
+This site is an OCX registry served by Cloudflare Workers. It distributes the `im-not-ai` OpenCode profile as public registry metadata and component files.
+
+`im-not-ai-ocx` is an unofficial OpenCode/OCX port of https://github.com/epoko77-ai/im-not-ai. The profile helps polish Korean AI drafts so they read more naturally while preserving the original meaning.
+
+## Canonical base URL
+
+https://im-not-ai-ocx.illuwa.click
+
+## Public endpoints
+
+- `GET /` — project introduction and install guide
+- `GET /help` — JSON help and install examples
+- `GET /.well-known/ocx.json` — OCX registry discovery document
+- `GET /index.json` — OCX v2 registry manifest
+- `GET /components/{name}.json` — npm-style component packument
+- `GET /components/{name}/{path}` — component file content
+- `GET /llms.txt` — concise AI discovery file
+- `GET /llms-full.txt` — this full AI reference
+- `GET /robots.txt` — crawler policy and AI discovery pointers
+
+## Current components
+
+### im-not-ai
+
+- Type: profile
+- Description: OpenCode profile port of im-not-ai Korean AI-style humanizer
+- Packument: https://im-not-ai-ocx.illuwa.click/components/im-not-ai.json
+- Install:
+
+```sh
+ocx profile add im-not-ai --source im-not-ai-ocx/im-not-ai --from https://im-not-ai-ocx.illuwa.click --global
+```
+
+## Beginner installation guide
+
+### 1. Install Node.js
+
+Install current LTS Node.js from https://nodejs.org/ or with your OS package manager. Node.js 20 or newer is recommended. Verify:
+
+```sh
+node --version
+npm --version
+```
+
+### 2. Install OpenCode CLI
+
+```sh
+npm i -g opencode-ai
+opencode --version
+```
+
+If global npm installs fail because of permissions, use your platform's recommended Node/npm setup or a Node version manager, then retry.
+
+### 3. Install OCX CLI
+
+```sh
+npm i -g ocx
+ocx --version
+```
+
+OCX CLI documentation: https://ocx.kdco.dev/docs/cli/profile
+
+### 4. Add the profile from this registry
+
+```sh
+ocx profile add im-not-ai --source im-not-ai-ocx/im-not-ai --from https://im-not-ai-ocx.illuwa.click --global
+```
+
+### 5. Use the profile
+
+```sh
+ocx opencode -p im-not-ai
+```
+
+Inside OpenCode, run examples like:
+
+```text
+/humanize 윤문할 한국어 초안
+/humanize ./draft.md 장르: 칼럼 강도: 보수
+/humanize ./draft.md --strict
+/humanize-redo 2차 윤문
+```
+
+## Troubleshooting
+
+- If `node`, `npm`, `opencode`, or `ocx` is not found, restart your shell and check `PATH`.
+- If the profile cannot be resolved, open `https://im-not-ai-ocx.illuwa.click/.well-known/ocx.json` and `https://im-not-ai-ocx.illuwa.click/index.json` in a browser.
+- If install examples drift, check `https://im-not-ai-ocx.illuwa.click/help` for the current commands.
+- If OpenCode starts but commands do not appear, reinstall the profile and verify `ocx profile add` completed without errors.
+
+## AI usage notes
+
+Summaries, citations, and tool-assisted navigation of public endpoints are allowed. Do not infer private authorization from this file. Respect robots.txt, rate limits, and any access controls.

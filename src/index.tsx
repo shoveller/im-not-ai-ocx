@@ -1,6 +1,11 @@
 import { Hono } from 'hono'
 import { About } from './About'
 import {
+  aiDiscoveryContentType,
+  getAiDiscoveryDocument,
+  type AiDiscoveryPath
+} from './ai-discovery'
+import {
   getComponentFile,
   getPackument,
   guessContentType
@@ -8,8 +13,17 @@ import {
 import { renderer } from './renderer'
 
 const app = new Hono()
+const aiDiscoveryPaths = ['/llms.txt', '/llms-full.txt', '/robots.txt'] as const
 
 app.use(renderer)
+
+aiDiscoveryPaths.forEach((path) => {
+  app.get(path, (c) => {
+    return c.body(getAiDiscoveryDocument(path as AiDiscoveryPath), 200, {
+      'content-type': aiDiscoveryContentType
+    })
+  })
+})
 
 app.get('/', (c) => {
   return c.render(<About />)
@@ -26,6 +40,9 @@ app.get('/help', (c) => {
       'GET /index.json': 'Registry manifest with component list',
       'GET /components/{name}.json': 'Component packument (npm-style)',
       'GET /components/{name}/{path}': 'Component file content',
+      'GET /llms.txt': 'Concise AI/LLM discovery file',
+      'GET /llms-full.txt': 'Full AI/LLM registry reference and install guide',
+      'GET /robots.txt': 'Crawler policy and AI discovery pointers',
       'GET /help': 'This help information'
     },
     components: [
@@ -44,7 +61,10 @@ app.get('/help', (c) => {
       ocxCliDocs: 'https://ocx.kdco.dev/docs/cli/profile',
       ocxRegistryProtocol: 'https://ocx.kdco.dev/docs/registries/protocol',
       imNotAiGithub: 'https://github.com/epoko77-ai/im-not-ai',
-      registryGithub: 'https://github.com/shoveller/im-not-ai-ocx'
+      registryGithub: 'https://github.com/shoveller/im-not-ai-ocx',
+      llms: 'https://im-not-ai-ocx.illuwa.click/llms.txt',
+      llmsFull: 'https://im-not-ai-ocx.illuwa.click/llms-full.txt',
+      robots: 'https://im-not-ai-ocx.illuwa.click/robots.txt'
     }
   })
 })

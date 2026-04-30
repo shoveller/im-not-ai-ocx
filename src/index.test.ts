@@ -182,6 +182,72 @@ describe('ocx registry endpoints', () => {
     expect(component?.quickStart).toContain('--source im-not-ai-ocx/im-not-ai')
   })
 
+  it('serves llms.txt as a concise AI discovery file', async () => {
+    const response = await app.request('http://localhost/llms.txt')
+
+    expect(response.status).toBe(200)
+    expect(response.headers.get('content-type')).toContain('text/plain')
+
+    const body = await response.text()
+
+    expect(body).toContain('# im-not-ai OCX Registry')
+    expect(body).toContain('https://im-not-ai-ocx.illuwa.click/llms-full.txt')
+    expect(body).toContain('ocx profile add im-not-ai')
+    expect(body).toContain('--source im-not-ai-ocx/im-not-ai')
+  })
+
+  it('serves llms-full.txt with beginner installation guide', async () => {
+    const response = await app.request('http://localhost/llms-full.txt')
+
+    expect(response.status).toBe(200)
+    expect(response.headers.get('content-type')).toContain('text/plain')
+
+    const body = await response.text()
+
+    expect(body).toContain('## Beginner installation guide')
+    expect(body).toContain('npm i -g opencode-ai')
+    expect(body).toContain('npm i -g ocx')
+    expect(body).toContain('ocx profile add im-not-ai')
+    expect(body).toContain('## Troubleshooting')
+  })
+
+  it('serves robots.txt with AI discovery pointers', async () => {
+    const response = await app.request('http://localhost/robots.txt')
+
+    expect(response.status).toBe(200)
+    expect(response.headers.get('content-type')).toContain('text/plain')
+
+    const body = await response.text()
+
+    expect(body).toContain('User-agent: *')
+    expect(body).toContain('LLMs: https://im-not-ai-ocx.illuwa.click/llms.txt')
+    expect(body).toContain(
+      'LLMs-Full: https://im-not-ai-ocx.illuwa.click/llms-full.txt'
+    )
+  })
+
+  it('links AI discovery files from root and help', async () => {
+    const rootResponse = await app.request('http://localhost/')
+    const rootBody = await rootResponse.text()
+
+    expect(rootResponse.status).toBe(200)
+    expect(rootBody).toContain('/llms.txt')
+    expect(rootBody).toContain('/llms-full.txt')
+
+    const helpResponse = await app.request('http://localhost/help')
+    const helpBody = (await helpResponse.json()) as {
+      endpoints: Record<string, string>
+      links: Record<string, string>
+    }
+
+    expect(helpResponse.status).toBe(200)
+    expect(helpBody.endpoints['GET /llms.txt']).toBeTruthy()
+    expect(helpBody.endpoints['GET /llms-full.txt']).toBeTruthy()
+    expect(helpBody.links.llms).toBe(
+      'https://im-not-ai-ocx.illuwa.click/llms.txt'
+    )
+  })
+
   it('returns packument from /components/:name.json', async () => {
     const indexBody = readIndex()
     const indexComponent = indexBody.components[0]
