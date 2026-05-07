@@ -1,11 +1,21 @@
 export const DefinitionSection = () => {
   return (
-    <section class="about-section rounded-[2rem] border border-white/10 bg-[#f6edd8]/[0.92] p-6 text-slate-950 shadow-2xl shadow-black/20 sm:p-8">
+    <section
+      class="about-section rounded-[2rem] border border-white/10
+        bg-[#f6edd8]/[0.92] p-6 text-slate-950 shadow-2xl shadow-black/20
+        sm:p-8"
+    >
       <div class="section-heading space-y-3">
-        <p class="eyebrow font-mono text-[0.68rem] font-bold uppercase tracking-[0.32em] text-amber-700">
+        <p
+          class="eyebrow font-mono text-[0.68rem] font-bold uppercase
+            tracking-[0.32em] text-amber-700"
+        >
           What is polishing?
         </p>
-        <h2 class="font-serif text-3xl font-black tracking-[-0.05em] text-slate-950 sm:text-4xl">
+        <h2
+          class="font-serif text-3xl font-black tracking-[-0.05em]
+            text-slate-950 sm:text-4xl"
+        >
           윤문이란?
         </h2>
       </div>
