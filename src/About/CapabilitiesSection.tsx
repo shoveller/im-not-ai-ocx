@@ -15,16 +15,22 @@ const capabilities = [
 
 export const CapabilitiesSection = () => {
   return (
-    <section class="about-section">
-      <div class="section-heading">
-        <p class="eyebrow">Use cases</p>
-        <h2>이 registry로 한국어 AI 초안을 윤문할 수 있습니다</h2>
+    <section class="about-section rounded-[2rem] border border-white/10 bg-white/[0.07] p-6 shadow-2xl shadow-black/25 backdrop-blur-xl sm:p-8">
+      <div class="section-heading space-y-3">
+        <p class="eyebrow font-mono text-[0.68rem] font-bold uppercase tracking-[0.32em] text-teal-200">
+          Use cases
+        </p>
+        <h2 class="font-serif text-3xl font-black tracking-[-0.05em] text-[#fff7df] sm:text-4xl">
+          이 registry로 한국어 AI 초안을 윤문할 수 있습니다
+        </h2>
       </div>
-      <div class="capability-grid">
+      <div class="capability-grid mt-6 grid gap-4 md:grid-cols-3">
         {capabilities.map(([title, description]) => (
-          <article class="capability-card" key={title}>
-            <h3>{title}</h3>
-            <p>{description}</p>
+          <article class="capability-card rounded-[1.5rem] border border-teal-200/15 bg-teal-200/[0.07] p-5 shadow-inner shadow-white/5" key={title}>
+            <h3 class="font-serif text-xl font-bold tracking-[-0.03em] text-teal-50">
+              {title}
+            </h3>
+            <p class="mt-3 text-sm leading-7 text-[#c7d7d1]">{description}</p>
           </article>
         ))}
       </div>

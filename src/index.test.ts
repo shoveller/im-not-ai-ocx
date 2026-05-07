@@ -94,7 +94,7 @@ describe('ocx registry endpoints', () => {
     expect(body).toContain('번역투')
     expect(body).toContain('AI 티')
     expect(body).toContain('서재원 : cinos@illuwa.click')
-    expect(body).toContain('class="site-footer"')
+    expect(body).toContain('site-footer')
     expect(body).toContain('Original project')
     expect(body).toContain('Registry repo')
     expect(body).not.toContain('Help JSON')
@@ -118,17 +118,21 @@ describe('ocx registry endpoints', () => {
     expect(body).toContain('name="twitter:card" content="summary"')
   })
 
-  it('keeps narrow screens readable without horizontal page overflow', () => {
+  it('uses Tailwind as the only stylesheet entry and renders the blueprint layout', async () => {
     const projectRoot = join(import.meta.dirname, '..')
     const css = readFileSync(join(projectRoot, 'src/style.css'), 'utf8')
 
-    expect(css).toContain('box-sizing: border-box')
-    expect(css).toContain('overflow-wrap: anywhere')
-    expect(css).toContain('@media (max-width: 480px)')
-    expect(css).toContain('max-width: 100%')
-    expect(css).toContain('white-space: pre-wrap')
-    expect(css).toContain('.hero-preview')
-    expect(css).toContain('aspect-ratio: 1200 / 630')
+    expect(css.trim()).toBe('@import "tailwindcss";')
+
+    const response = await app.request('http://localhost/')
+    const body = await response.text()
+
+    expect(body).toContain('bg-[#07111f]')
+    expect(body).toContain('lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.25fr)]')
+    expect(body).toContain('font-mono')
+    expect(body).toContain('font-serif')
+    expect(body).toContain('hero-preview')
+    expect(body).toContain('aspect-[1200/630]')
   })
 
   it('keeps discovery document as static public file', () => {

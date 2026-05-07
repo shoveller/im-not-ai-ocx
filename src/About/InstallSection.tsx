@@ -71,26 +71,32 @@ const copyScript = `document.querySelectorAll('[data-copy-target]').forEach((but
 
 export const InstallSection = () => {
   return (
-    <section class="about-section">
-      <div class="section-heading">
-        <p class="eyebrow">Install</p>
-        <h2>WSL2와 macOS에서 같은 흐름으로 설치합니다</h2>
+    <section class="about-section rounded-[2rem] border border-amber-200/15 bg-[linear-gradient(135deg,rgba(245,158,11,0.16),rgba(45,212,191,0.08),rgba(124,58,237,0.14))] p-6 shadow-2xl shadow-black/25 backdrop-blur-xl sm:p-8">
+      <div class="section-heading space-y-3">
+        <p class="eyebrow font-mono text-[0.68rem] font-bold uppercase tracking-[0.32em] text-amber-200">
+          Install
+        </p>
+        <h2 class="font-serif text-3xl font-black tracking-[-0.05em] text-[#fff7df] sm:text-4xl">
+          WSL2와 macOS에서 같은 흐름으로 설치합니다
+        </h2>
       </div>
       <OsInstallCard
         commands={sharedCommands}
         description="WSL2 Ubuntu와 macOS 터미널 모두 Node.js 준비 후 OpenCode, OCX, im-not-ai profile 순서로 설치합니다."
         title="WSL2 · macOS"
       />
-      <div class="llm-install-copy">
+      <div class="llm-install-copy mt-5 flex flex-col gap-4 rounded-[1.5rem] border border-teal-200/20 bg-teal-200/[0.08] p-5 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h3>LLM에게 설치를 맡길 때</h3>
-          <p>
+          <h3 class="font-serif text-xl font-bold tracking-[-0.03em] text-teal-50">
+            LLM에게 설치를 맡길 때
+          </h3>
+          <p class="mt-2 text-sm leading-7 text-[#c7d7d1]">
             아래 버튼으로 설치 지원용 마크다운을 복사한 뒤, 사용 중인 LLM에게
             그대로 붙여넣으세요.
           </p>
         </div>
         <button
-          class="copy-markdown-button"
+          class="copy-markdown-button rounded-full bg-[linear-gradient(135deg,#f59e0b,#2dd4bf,#8b5cf6)] px-5 py-3 font-mono text-xs font-black uppercase tracking-[0.2em] text-slate-950 shadow-lg shadow-black/25 transition hover:-translate-y-0.5 focus:outline-none focus-visible:ring-4 focus-visible:ring-teal-300/45 sm:flex-none"
           data-copy-target="llm-install-markdown"
           type="button"
         >
